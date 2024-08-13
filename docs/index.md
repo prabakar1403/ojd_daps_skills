@@ -1,32 +1,41 @@
 # Skills Extractor
 
 - [Installation](#installation)
-- [Development](#development)
+- [Using Nesta’s Skills Extractor library](#tldr-using-nestas-skills-extractor-library)
+- Development
 
-## Welcome to Nesta's Skills Extractor Library
+## Welcome to Nesta’s Skills Extractor Library
 
-Welcome to the documentation of Nesta's skills extractor library.
+Welcome to the documentation of Nesta’s skills extractor library.
 
-This page contains information on how to install and use Nesta's skills extraction library. The skills library allows you to extract skills phrases from job advertisement texts and maps them onto a skills taxonomy of your choice.
+This page contains information on how to install and use Nesta’s skills extraction library. The skills library allows you to extract skills phrases from job advertisement texts and maps them onto a skills taxonomy of your choice.
 
-We currently support three different taxonomies to map onto: the [European Commission’s European Skills, Competences, and Occupations (ESCO)](https://esco.ec.europa.eu/en/about-esco/what-esco), [Lightcast’s Open Skills](https://skills.lightcast.io/) and a “toy” taxonomy developed internally for the purpose of testing.
+![](images/highlevel_example.png)
 
-If you'd like to learn more about the models used in the library, please refer to the [model card page](https://nestauk.github.io/ojd_daps_skills/build/html/model_card.html).
+We currently support three different taxonomies to map onto: the European Commission’s European Skills, Competences, and Occupations (ESCO), Lightcast’s Open Skills and a “toy” taxonomy developed internally for the purpose of testing.
+
+If you’d like to learn more about the models used in the library, please refer to the model card page.
 
 You may also want to read more about the wider project by reading:
 
-1. Our [Introduction blog](https://www.escoe.ac.uk/the-skills-extractor-library)
-2. Our [interactive analysis blog](https://www.nesta.org.uk/data-visualisation-and-interactive/exploring-uk-skills-demand/)
+1. [Our Introduction blog](https://www.escoe.ac.uk/the-skills-extractor-library)
+2. [Our interactive analysis blog](https://www.nesta.org.uk/data-visualisation-and-interactive/exploring-uk-skills-demand/)
 
-## Installation <a name="installation"></a>
+## Installation
 
-To install as a package:
+You can use pip to install the library:
 
-```
-pipx install poetry
-poetry shell
-poetry install
-```
+`pip install ojd-daps-skills`
+
+You will also need to install spaCy’s English language model:
+
+`python -m spacy download en_core_web_sm`
+
+Note that this package was developed on MacOS and tested on Ubuntu. Changes have been made to be compatible on a Windows system but are not tested and cannot be guaranteed.
+
+When the package is first used it will automatically download a folder of neccessary data and models. (~1GB)
+
+## TL;DR: Using Nesta’s Skills Extractor library
 
 To extract skills from a job advert:
 
@@ -95,22 +104,15 @@ Skill spans: []
 Skills mapped: []
 ```
 
-To run tests:
+## App
 
-```
-poetry run pytest tests/
-```
+![](images/221819442-70829216-b763-4717-b802-2f8836ad0874.gif)
 
-### Contributor guidelines
+If you would like to demo the library using a front end, we have also built a streamlit app that allows you to extract skills for a given text. The app allows you to paste a job advert of your choice, extract and map skills onto any of the configurations: extract_skills_lightcast and extract_skills_esco.
+
+## Contributor guidelines
 
 The technical and working style guidelines can be found [here](https://github.com/nestauk/ds-cookiecutter/blob/master/GUIDELINES.md).
 
 If contributing, changes will need to be pushed to a new branch in order for our code checks to be triggered.
 
----
-
-<small><p>This project was made possible via funding from the <a target="_blank" href="https://www.escoe.ac.uk/">Economic Statistics Centre of Excellence</a></p></small>
-
-<small><p>Project template is based on <a target="_blank" href="https://github.com/nestauk/ds-cookiecutter">Nesta's data science project template</a>
-(<a href="http://nestauk.github.io/ds-cookiecutter">Read the docs here</a>).
-</small>
